@@ -187,36 +187,29 @@ body {
   background: #eef2e6;
 }
 
-#title {
-  background: #1c6758;
-  color: #eef2e6;
-  margin-bottom: 30px;
-}
-
 .container-fluid {
-  padding: 3% 15%;
-}
-
-hr {
-  border: dotted #18413c 6px;
-  border-bottom: none;
-  width: 4%;
+  padding: 3% 5%;
 }
 
 h1 {
+  padding-top: 4%;
   font-family: "Montserrat", sans-serif;
-  font-size: 4 rem;
-  font-weight: 700;
-  text-align: center;
-}
-h3 {
-  font-family: "Montserrat";
+  font-size: 3rem;
   font-weight: 700;
 }
-h4 {
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3,
+h4,
+h6 {
   font-family: "Montserrat";
-  font-weight: 500;
-  color: #30584a;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #302939;
 }
 p {
   color: #8f8f8f;
@@ -229,13 +222,12 @@ p {
   padding-right: 15%;
   padding-top: 2%;
   background: #322b3c !important;
-  margin-bottom: 30px;
 }
 .searchbar {
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
-  background-color: #372f42;
+  background-color: #302939;
   border-radius: 30px;
   padding: 10px;
 }
@@ -254,13 +246,13 @@ p {
 .searchbar:hover > .search_input {
   padding: 0 10px;
   width: 300px;
-  caret-color: #f0bb62;
+  caret-color: #eef2e6;
   transition: width 0.4s linear;
 }
 
 .searchbar:hover > .search_icon {
   background: #eef2e6;
-  color: #13443a;
+  color: #302939;
 }
 
 .search_icon {
@@ -314,6 +306,11 @@ p {
 }
 
 /* Title */
+#title {
+  background: #d9c1fb;
+  color: #372f42;
+  margin-bottom: 30px;
+}
 
 .prmpage {
   padding-top: 20%;
@@ -337,8 +334,7 @@ p {
   outline: none;
 }
 .form-control {
-  border-radius: 0px;
-
+  border-radius: 20px;
   background-color: #eef2e6;
 }
 
@@ -636,7 +632,8 @@ footer {
   text-decoration: none !important;
   outline: none !important;
 }
-/* .footer-06 .aside-stretch {
+/*
+ .footer-06 .aside-stretch {
   background: #322b3c;
 }
 .footer-06 .aside-stretch:after {

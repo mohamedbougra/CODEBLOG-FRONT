@@ -5,8 +5,7 @@
         v-for="topic in topics"
         :key="topic.id"
         :href="topic.url"
-        class="btn btn-light btn-md"
-        style="border-radius: 35px; background: #d6cda4"
+        class="btn btn-sm login"
         >#{{ topic.name }}</a
       >
     </div>

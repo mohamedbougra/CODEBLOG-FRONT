@@ -4,7 +4,7 @@
       <div class="col-md-6 offset-md-3">
         <div class="text-center">
           <img src="../assets/logo/CBLogo.svg" alt="Logo" class="mb-2 logo" />
-          <h1 class="h3 mb-3 font-weight-normal">Sign in to your account.</h1>
+          <h1 class="h3 mb-3 font-weight-normal">Create your account.</h1>
         </div>
         <form @submit.prevent="login">
           <div class="form-group">
@@ -36,10 +36,10 @@
           </button>
         </form>
         <div>
-          <span> Already have an account? </span>
+          <span> No account? </span>
           <span
-            ><router-link class="a" to="/Sign-up"
-              ><b>Sign up</b></router-link
+            ><router-link class="a" to="/login"
+              ><b>Create one</b></router-link
             ></span
           >
         </div>

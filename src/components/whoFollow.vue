@@ -1,5 +1,5 @@
 <template>
-  <div v-for="f in whoFollow" :key="f.id" class="media text-muted pt-3">
+  <div v-for="f in whoFollow" :key="f.id" class="media text-muted pt-3 follow">
     <svg
       class="bd-placeholder-img mr-2 rounded"
       width="32"
@@ -11,16 +11,15 @@
       focusable="false"
     >
       <title>Placeholder</title>
-      <rect width="100%" height="100%" fill="#322b3c"></rect>
-      <text x="50%" y="50%" fill="#322b3c" dy=".3em"></text>
+      <rect width="100%" height="100%" fill="#d7b8ff"></rect>
     </svg>
 
     <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
       <div class="d-flex justify-content-between align-items-center w-100">
-        <strong class="text-gray-dark">{{ f.name }}</strong>
-        <a href="#">Follow</a>
+        <strong class="text-gray-dark follow1">{{ f.name }}</strong>
+        <a href="#" class="follow">Follow</a>
       </div>
-      <span class="d-block">{{ f.username }}</span>
+      <span class="d-block follow1">{{ f.username }}</span>
     </div>
   </div>
 </template>
@@ -38,7 +37,7 @@ export default {
 </script>
 
 <style scoped>
-a {
-  color: #322b3c;
+.follow1 {
+  color: #eef2e6;
 }
 </style>
