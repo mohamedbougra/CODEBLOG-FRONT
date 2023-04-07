@@ -32,7 +32,7 @@
             class="btn btn-lg btn-primary btn-block addArticle"
             type="submit"
           >
-            Sign in
+            Sign up
           </button>
         </form>
         <div>

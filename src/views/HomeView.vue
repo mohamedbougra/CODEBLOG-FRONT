@@ -1,4 +1,9 @@
 <template>
+  <!-- navbar -->
+  <NavbarCompoment></NavbarCompoment>
+
+  <!-- section 1: title -->
+
   <section id="title">
     <div class="container-fluid">
       <div class="row">
@@ -25,10 +30,13 @@
       </div>
     </div>
   </section>
-  <!-- Recommended Article -->
+  <!-- section 2 : articles -->
+
   <section id="articles">
     <div class="container-fluid home">
       <div class="row">
+        <!-- Recent Article -->
+
         <div class="col-lg-8 mb-5 mb-lg-0">
           <div class="section-title">
             <h2>Recent Articles</h2>
@@ -37,7 +45,9 @@
         </div>
         <div class="col-lg-4">
           <NewsLetterpost></NewsLetterpost>
+
           <!-- Who Follow -->
+
           <div class="my-3 p-3 rounded shadow-sm widgets1">
             <h2 class="widget1-title">Suggested people to follow</h2>
             <whoFollow :whoFollow="whoFollow" />
@@ -60,6 +70,9 @@
       logout
     </button>
   </div>
+
+  <!-- footer -->
+  <FooterCompoment></FooterCompoment>
 </template>
 
 <script lang="ts">
@@ -68,16 +81,20 @@ import ArticleCard from "@/components/ArticleCard.vue"; // @ is an alias to /src
 import RecommendedTopics from "@/components/RecommendedTopics.vue"; // @ is an alias to /src
 import whoFollow from "@/components/whoFollow.vue"; // @ is an alias to /src
 import NewsLetterpost from "@/components/NewsLetterpost.vue"; // @ is an alias to /src
+import NavbarCompoment from "@/components/NavbarCompoment.vue"; // @ is an alias to /src
+import FooterCompoment from "@/components/FooterCompoment.vue"; // @ is an alias to /src
 import api from "@/service/apiClient";
 import { logout } from "@/service/AuthenticationService";
 
 export default defineComponent({
   name: "HomeView",
   components: {
+    NavbarCompoment,
     ArticleCard,
+    NewsLetterpost,
     RecommendedTopics,
     whoFollow,
-    NewsLetterpost,
+    FooterCompoment,
   },
 
   setup() {
