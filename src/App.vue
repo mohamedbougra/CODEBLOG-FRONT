@@ -15,7 +15,7 @@ body {
 h1 {
   padding-top: 4%;
   font-family: "Montserrat", sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
 }
 h2 {
@@ -45,30 +45,42 @@ a {
   display: ruby;
   background: #302939;
   color: #eef2e6 !important;
-  border-radius: 20px;
+  border-radius: 9px;
   margin-bottom: 0px;
   border: 0px;
   font-family: "Montserrat" !important;
   font-weight: 400 !important;
 }
 .addArticle:hover {
-  background: #eef2e6;
-  color: #372f42 !important;
+  color: #302939 !important;
+  background: #eef2e6 !important;
 }
 
 .login:hover {
-  background: #302939;
-  color: #eef2e6 !important;
+  color: #302939 !important;
+  background: #eef2e6 !important;
 }
 
 .login {
-  background: #eef2e6;
-  color: #372f42 !important;
-  border-radius: 20px;
+  background: #322b3c;
+  color: #eef2e6 !important;
+  border-radius: 9px;
   margin-bottom: 0px;
-  border: 0px;
+  border-color: #eef2e6;
   font-family: "Montserrat" !important;
   font-weight: 400 !important;
+}
+.recommaded {
+  background: #eef2e6;
+  color: #372f42 !important;
+  border-radius: 9px;
+  margin-bottom: 0px;
+  font-family: "Montserrat" !important;
+  font-weight: 400 !important;
+}
+.recommaded:hover {
+  background: #302939;
+  color: #eef2e6 !important;
 }
 
 /* section 1 : Title */

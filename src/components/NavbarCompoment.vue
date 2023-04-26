@@ -36,12 +36,15 @@
         </div>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <router-link
-              class="btn btn-outline-primary addArticle nav-link"
-              to="/add-article"
+            <router-link class="btn addArticle nav-link" to="/add-article"
               ><i
                 class="fa-regular fa-pen-to-square"
-                style="color: #eef2e6; padding-right: 3%"
+                style="
+                   {
+                    color: #eef2e6;
+                    padding-right: 5%;
+                  }
+                "
               ></i
               >Write</router-link
             >
@@ -57,11 +60,12 @@
   </nav>
 </template>
 <script></script>
-<style>
+<style scoped>
 .navbar {
   padding-left: 15%;
   padding-right: 15%;
-  padding-top: 2%;
+  padding-bottom: 0px;
+  padding-top: 0px;
   background: #322b3c !important;
 }
 .searchbar {
@@ -116,7 +120,6 @@
   font-size: 1.2rem;
   font-family: "Montserrat";
   font-weight: 300;
-  border-radius: 20px;
   margin-bottom: 0px;
 }
 </style>

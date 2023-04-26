@@ -1,35 +1,93 @@
 <template>
+  <!-- navbar -->
+  <NavbarCompomentAddArticle></NavbarCompomentAddArticle>
   <div class="create-post">
-    <div class="container">
+    <div class="container-fluid">
       <div class="blog-info">
-        <input type="text" placeholder="Enter Blog Title" v-model="blogTitle" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Title"
+          v-model="blogTitle"
+          @input="checkTitleLength"
+          maxlength="75"
+        />
+        <div class="modal" id="warning-modal">
+          <div class="modal-content">
+            <i class="fas fa-exclamation-circle"></i>
+            <p style="color: #322b3c">Title should not exceed 75 characters.</p>
+            <button class="btn addArticle" @click="hideModal">OK</button>
+          </div>
+        </div>
       </div>
       <div class="text">
         <QuillEditor theme="snow" toolbar="full" />
       </div>
-      <div class="blog-actions">
-        <button @click="uploadBlog">Publish Blog</button>
-       
-      </div>
     </div>
   </div>
-
 </template>
-
-
-
-
 <script setup>
-import { QuillEditor } from '@vueup/vue-quill'
-import '@vueup/vue-quill/dist/vue-quill.snow.css'
-
+import { QuillEditor } from "@vueup/vue-quill";
+import "@vueup/vue-quill/dist/vue-quill.bubble.css";
+import "@vueup/vue-quill/dist/vue-quill.snow.css";
+import NavbarCompomentAddArticle from "@/components/NavbarCompomentAddArticle.vue"; // @ is an alias to /src
 </script>
 
+<script>
+export default {
+  data() {
+    return {
+      blogTitle: "",
+      showWarning: false,
+    };
+  },
+  methods: {
+    checkTitleLength() {
+      if (this.blogTitle.length > 74) {
+        document.getElementById("warning-modal").style.display = "block";
+      } else {
+        document.getElementById("warning-modal").style.display = "none";
+      }
+    },
+    showModal() {
+      document.getElementById("warning-modal").style.display = "block";
+    },
+    hideModal() {
+      document.getElementById("warning-modal").style.display = "none";
+    },
+  },
+};
+</script>
+<style scoped>
+.form-control {
+  background-color: #eef2e6 !important;
+  border: 0px !important;
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  height: 6rem;
+}
+.text {
+  background-color: #eef2e6 !important;
+  border: 0px !important;
+  padding: 2%;
+  text-align: center;
+}
 
-<style lang="css">
+.wrn,
+.form-control::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  text-align: center;
+  color: #30303044;
+  border: 0px;
+}
+
 button {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #322b3c;
+  color: #eef2e6;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
@@ -37,9 +95,8 @@ button {
   transition: all 0.2s ease-in-out;
 }
 button:hover {
-  background-color: #0062cc;
+  background-color: #322b3c;
 }
-
 
 .create-post {
   position: relative;
@@ -85,12 +142,10 @@ button:hover {
   opacity: 0 !important;
 }
 
-
-
 .create-post .blog-info {
   display: flex;
   margin-bottom: 32px;
-  background-color: #eef2e6; 
+  background-color: #eef2e6;
 }
 
 .create-post .blog-info input:nth-child(1) {
@@ -117,8 +172,17 @@ button:hover {
 }
 
 .create-post .blog-info .upload-file input {
-  background-color: #eef2e6; 
+  background-color: #eef2e6;
   display: none;
+}
+.ql-container {
+  box-sizing: border-box;
+  font-family: Poppins !important;
+  text-align: center !important;
+  font-size: 13px;
+  height: 100%;
+  margin: 0px;
+  position: relative;
 }
 
 .create-post .editor {
@@ -149,7 +213,7 @@ button:hover {
   height: 100%;
   margin-bottom: 20px;
   box-shadow: 0 1px 0 0 #303030;
-  background-color:#fff;
+  background-color: #fff;
 }
 
 .create-post .blog-actions {
@@ -159,5 +223,47 @@ button:hover {
 .create-post .blog-actions button {
   margin-right: 16px;
 }
-</style>
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: none;
+}
 
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eef2e6;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content i {
+  font-size: 48px;
+  color: #322b3c;
+}
+
+.modal-content p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out !important;
+}
+.addArticle:hover {
+  background-color: #d7b8ff !important;
+}
+</style>

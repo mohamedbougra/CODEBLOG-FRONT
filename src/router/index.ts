@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import loginView from "../views/loginView.vue";
 import signUpView from "../views/signUpView.vue";
 import ProfileView from "../views/ProfileView.vue";
+import ReadArticleView from "../views/ReadArticleView.vue";
 import AddArticleView from "../views/AddArticleView.vue";
 const routes: Array<RouteRecordRaw> = [
   {
@@ -33,6 +34,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/profile",
     name: "profile",
     component: ProfileView,
+  },
+  {
+    path: "/article",
+    name: "article",
+    component: ReadArticleView,
   },
   {
     path: "/add-article",

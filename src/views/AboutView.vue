@@ -2,9 +2,7 @@
   <!-- navbar -->
   <NavbarCompoment></NavbarCompoment>
 
-  <div class="about">
-    <h1>This is a About page</h1>
-  </div>
+  <div class="about"></div>
 
   <!-- footer -->
   <FooterCompoment></FooterCompoment>

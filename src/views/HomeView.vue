@@ -9,13 +9,12 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="subdiv">
-            <h1 class="header1">Welcome to CodeBlog</h1>
+            <h1>
+              Welcome to <span style="color: #3f2083">{{ message }}</span>
+            </h1>
           </div>
           <div class="subdiv">
-            <h2>Your Ultimate Destination for All Things Coding!</h2>
-          </div>
-          <div class="subdiv">
-            <router-link class="btn btn-primary addArticle" to="/login"
+            <router-link class="btn addArticle" to="/sign-up"
               >Get Started</router-link
             >
           </div>
@@ -37,13 +36,13 @@
       <div class="row">
         <!-- Recent Article -->
 
-        <div class="col-lg-8 mb-5 mb-lg-0">
+        <div class="col-lg-9 mb-5 mb-lg-0">
           <div class="section-title">
             <h2>Recent Articles</h2>
           </div>
           <ArticleCard :topics="Articles" />
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <NewsLetterpost></NewsLetterpost>
 
           <!-- Who Follow -->
@@ -55,9 +54,9 @@
               <a href="#" class="follow">All suggestions</a>
             </small>
           </div>
-          <!-- Recommended Topics -->
+          <!-- popular Topics -->
           <div class="widgets1">
-            <h2 class="widget1-title">Recommended Topics</h2>
+            <h2 class="widget1-title">popular Topics</h2>
             <RecommendedTopics :topics="recommendedTopic" />
           </div>
         </div>
@@ -72,6 +71,7 @@
   </div>
 
   <!-- footer -->
+
   <FooterCompoment></FooterCompoment>
 </template>
 
@@ -150,39 +150,42 @@ export default defineComponent({
       Articles: [
         {
           id: 1,
-          name: "Technology, client-server communication protocol",
+          name: "Technology, client-server communication protocole and js prototype",
           description:
-            "REST API is a widely used client-server communication protocol, but it has limitations when dealing with clients such as web iOS, Android, smart devices, etc.",
+            "ffffff REST API is a widely used client-server communication protocol, but it has limitations when dealing with clients such as web iOS, Android, smart devices, etc ffvfvfff gggg gbgbgbgbg bgbg.",
           imageUrl:
             "https://reflectoring.io/images/stock/0129-node-graphql-1200x628-branded_hu946ea48a063c7bb127fbc15b48596a23_203637_650x0_resize_q90_box.jpg",
           url: "https://medium.com/topic/technology",
           autour: "mohmaed bougra",
           topic: "Spring",
           date: "March 22, 2023",
+          reader: 1225,
         },
         {
           id: 2,
           name: "Design",
           description:
-            "Explore the world of design with inspiring articles and tutorials.",
+            "Explore the world of design with inspiring articles and tutorials. Ut occaecat voluptate ullamco eiusmod. Dolore commodo tempor velit Lorem aliquip. Non tempor nulla ullamco sit ea et incididunt nulla magna aliqua id ipsum veniam. Aliquip aliqua pariatur voluptate eiusmod adipisicing velit culpa quis incididunt ex quis. Elit adipisicing commodo elit aliquip nulla consequat laboris ullamco tempor Lorem laboris tempor. Non anim nulla reprehenderit ad deserunt adipisicing. Proident adipisicing eiusmod deserunt excepteur labore ullamco occaecat veniam elit id incididunt qui mollit.",
           imageUrl:
             "https://reflectoring.io/images/stock/0129-node-graphql-1200x628-branded_hu946ea48a063c7bb127fbc15b48596a23_203637_650x0_resize_q90_box.jpg",
           url: "https://medium.com/topic/design",
           autour: "ikram ckiih",
           topic: "java",
           date: "March 22, 2023",
+          reader: 1225,
         },
         {
           id: 3,
           name: "Culture",
           description:
-            "Discover new perspectives on culture, arts, and society.",
+            "Discover new perspectives on culture, arts, and society. new perspectives on culture, arts, and societ ",
           imageUrl:
             "https://reflectoring.io/images/stock/0129-node-graphql-1200x628-branded_hu946ea48a063c7bb127fbc15b48596a23_203637_650x0_resize_q90_box.jpg",
           url: "https://medium.com/topic/culture",
           autour: "hamza ",
           topic: "Spring",
           date: "March 22, 2023",
+          reader: 1225,
         },
         {
           id: 4,
@@ -195,6 +198,7 @@ export default defineComponent({
           autour: "mohmaed rafa",
           topic: "JEE",
           date: "March 22, 2023",
+          reader: 1225,
         },
         {
           id: 5,
@@ -206,6 +210,7 @@ export default defineComponent({
           autour: "mohmaed bougra",
           topic: "Spring",
           date: "March 22, 2023",
+          reader: 1225,
         },
         {
           id: 6,
@@ -217,6 +222,7 @@ export default defineComponent({
           autour: "mohmaed bougra",
           topic: "Spring",
           date: "March 22, 2023",
+          reader: 1225,
         },
       ],
       whoFollow: [
@@ -245,14 +251,41 @@ export default defineComponent({
           url: "#",
         },
       ],
+      message: "",
     };
+  },
+  methods: {
+    typeWriter() {
+      var i = 0;
+      var welcomeText = "CodeBlog";
+      var bonjourText = "Your Ultimate Destination for All Things Coding!";
+      var speed = 120;
+
+      setInterval(() => {
+        if (i < welcomeText.length) {
+          this.message += welcomeText.charAt(i);
+        } else if (i === welcomeText.length) {
+          this.message = "";
+        } else if (i < welcomeText.length + bonjourText.length) {
+          this.message += bonjourText.charAt(i - welcomeText.length - 1);
+        } else {
+          this.message = "";
+          i = -1;
+        }
+        i++;
+      }, speed);
+    },
+  },
+  mounted() {
+    this.typeWriter();
   },
 });
 </script>
 <style>
-a {
-  color: #322b3c;
+#articles {
+  position: relative;
 }
+
 .follow {
   color: #d7b8ff;
 }
@@ -280,9 +313,6 @@ a {
   z-index: 1;
 }
 .subdiv {
-  height: 33.33%;
-}
-#articles {
-  position: relative;
+  height: 50%;
 }
 </style>

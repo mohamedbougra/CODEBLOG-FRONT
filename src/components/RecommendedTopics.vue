@@ -5,7 +5,7 @@
         v-for="topic in topics"
         :key="topic.id"
         :href="topic.url"
-        class="btn btn-sm login"
+        class="btn btn-sm recommaded"
         >#{{ topic.name }}</a
       >
     </div>

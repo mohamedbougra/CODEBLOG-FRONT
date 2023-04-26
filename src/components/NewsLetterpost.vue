@@ -91,6 +91,7 @@ export default {
 P {
   color: #eef2e6;
 }
+
 .form-control {
   border-radius: 20px;
   background: #eef2e6;
