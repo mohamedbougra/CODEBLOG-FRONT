@@ -13,6 +13,7 @@
         <div
           class="col-md-8 py-4 py-md-5 d-flex align-items-center pl-md-5 aside-stretch-right"
         >
+     
           <form action="#" class="subscribe-form w-100">
             <div class="form-group d-flex">
               <input
@@ -60,10 +61,9 @@
                 </li>
 
                 <li>
-                  <a href="#" class="py-1 d-block"
-                    ><span class="ion-ios-checkmark-circle-outline mr-2"></span
-                    >Contact Us</a
-                  >
+                  <router-link class="py-1 d-block" to="/contact-us"><span class="ion-ios-checkmark-circle-outline mr-2"></span
+                    >Contact Us
+                  </router-link>
                 </li>
                 <li>
                   <a href="#" class="py-1 d-block"
