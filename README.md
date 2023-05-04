@@ -1,5 +1,9 @@
 # CodeBlog
 
+## \* Installation de Prism espace code
+
+npm install vue-prism --save-dev
+
 ## Project setup
 
 ```

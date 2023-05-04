@@ -286,10 +286,10 @@ footer {
 }
 /*
  .footer-06 .aside-stretch {
-  background: #322b3c;
+  background: #372f42;
 }
 .footer-06 .aside-stretch:after {
-  background: #322b3c;
+  background: #372f42;
 }
 .footer-06 .aside-stretch-right {
   background: #372f42;

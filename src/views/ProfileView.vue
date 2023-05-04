@@ -1,7 +1,7 @@
 <template>
   <!-- navbar -->
   <NavbarCompoment></NavbarCompoment>
-  <section class="py-5 my-5">
+  <section class="profile">
     <div class="container">
       <h1 class="mb-5">Account Settings</h1>
       <div class="bg-white shadow rounded-lg d-block d-sm-flex">
@@ -10,7 +10,11 @@
             <div class="img-circle text-center mb-3">
               <img src="../assets/user2.jpg" alt="Image" class="shadow" />
             </div>
-            <h4 class="text-center">Kiran Acharya</h4>
+            <h4 class="text-center">
+              {{ user.firstName }} {{ user.lastName }}
+            </h4>
+            <p style="text-align: center">{{ user.follower }} followers</p>
+            <p style="text-align: center">{{ user.following }} following</p>
           </div>
           <div
             class="nav flex-column nav-pills"
@@ -29,6 +33,18 @@
             >
               <i class="fa fa-home text-center mr-1"></i>
               Account
+            </a>
+            <a
+              class="nav-link active nl"
+              id="post-tab"
+              data-toggle="pill"
+              href="#post"
+              role="tab"
+              aria-controls="post"
+              aria-selected="false"
+            >
+              <i class="fa fa-home text-center mr-1"></i>
+              Posts
             </a>
             <a
               class="nav-link nl"
@@ -92,13 +108,21 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>First Name</label>
-                  <input type="text" class="form-control" value="Kiran" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="user.firstName"
+                  />
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Last Name</label>
-                  <input type="text" class="form-control" value="Acharya" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="user.lastName"
+                  />
                 </div>
               </div>
               <div class="col-md-6">
@@ -107,18 +131,14 @@
                   <input
                     type="text"
                     class="form-control"
-                    value="kiranacharya287@gmail.com"
+                    v-model="user.email"
                   />
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Phone number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="+91 9876543215"
-                  />
+                  <input type="tel" class="form-control" v-model="user.phone" />
                 </div>
               </div>
               <div class="col-md-6">
@@ -127,7 +147,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    value="Kiran Workspace"
+                    v-model="user.company"
                   />
                 </div>
               </div>
@@ -137,22 +157,86 @@
                   <input
                     type="text"
                     class="form-control"
-                    value="UI Developer"
+                    v-model="user.designation"
                   />
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Bio</label>
-                  <textarea class="form-control" rows="4">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea
-                  >
+                  <textarea
+                    class="form-control"
+                    rows="4"
+                    v-model="user.bio"
+                  ></textarea>
                 </div>
               </div>
             </div>
             <div>
-              <button class="btn btn-primary AddAricle">Update</button>
-              <button class="btn btn-light login">Cancel</button>
+              <button class="btn login">Update</button>
+              <button class="btn btn-light cancel">Cancel</button>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="post"
+            role="tabpanel"
+            aria-labelledby="post-tab"
+          >
+            <h3 class="mb-4">My Posts</h3>
+            <div class="row">
+              <div
+                v-for="topic in user.topics"
+                :key="topic.id"
+                class="col-12 mb-4"
+              >
+                <div class="card bg-light h-100">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img
+                        :src="topic.imageUrl"
+                        class="card-img"
+                        alt="Topic image"
+                      />
+                    </div>
+                    <div class="col-md-8">
+                      <div
+                        class="card-body d-flex flex-column justify-content-between h-100"
+                      >
+                        <div>
+                          <h5 class="card-title fw-bold">{{ topic.name }}</h5>
+                          <p class="card-text">{{ topic.description }}</p>
+                        </div>
+                        <div
+                          class="d-flex justify-content-between align-items-end"
+                        >
+                          <div>{{ topic.lastUpdated }}</div>
+                          <router-link to="/aticle" class="btn login"
+                            >Read</router-link
+                          >
+                          <router-link to="/add-article" class="btn login"
+                            >Modify</router-link
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div v-if="user.topics.length === 0" class="col-12">
+                <div class="card bg-light">
+                  <div class="card-body">
+                    <h5 class="card-title">No topics found</h5>
+                    <p class="card-text">
+                      There are currently no topics available. Please add a new
+                      topic to continue.
+                    </p>
+                    <router-link to="/add-topic" class="btn btn-primary"
+                      >Add Topic</router-link
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -161,12 +245,17 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
             role="tabpanel"
             aria-labelledby="password-tab"
           >
+            <!-- Password settings form -->
             <h3 class="mb-4">Password Settings</h3>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Old password</label>
-                  <input type="password" class="form-control" />
+                  <input
+                    type="password"
+                    class="form-control"
+                    v-model="oldPassword"
+                  />
                 </div>
               </div>
             </div>
@@ -174,19 +263,29 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
               <div class="col-md-6">
                 <div class="form-group">
                   <label>New password</label>
-                  <input type="password" class="form-control" />
+                  <input
+                    type="password"
+                    class="form-control"
+                    v-model="newPassword"
+                  />
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Confirm new password</label>
-                  <input type="password" class="form-control" />
+                  <input
+                    type="password"
+                    class="form-control"
+                    v-model="confirmNewPassword"
+                  />
                 </div>
               </div>
             </div>
             <div>
-              <button class="btn btn-primary AddAricle">Update</button>
-              <button class="btn btn-light login">Cancel</button>
+              <button class="btn btn-primary login" @click="updatePassword">
+                Update
+              </button>
+              <button class="btn btn-light cancel">Cancel</button>
             </div>
           </div>
           <div
@@ -226,8 +325,8 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
               </div>
             </div>
             <div>
-              <button class="btn btn-primary AddAricle">Update</button>
-              <button class="btn btn-light login">Cancel</button>
+              <button class="btn btn-primary login">Update</button>
+              <button class="btn btn-light cancel">Cancel</button>
             </div>
           </div>
           <div
@@ -266,8 +365,8 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
               </div>
             </div>
             <div>
-              <button class="btn btn-primary AddAricle">Update</button>
-              <button class="btn btn-light login">Cancel</button>
+              <button class="btn btn-primary login">Update</button>
+              <button class="btn btn-light cancel">Cancel</button>
             </div>
           </div>
           <div
@@ -320,8 +419,8 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
               </div>
             </div>
             <div>
-              <button class="btn btn-primary AddAricle">Update</button>
-              <button class="btn btn-light login">Cancel</button>
+              <button class="btn btn-primary login">Update</button>
+              <button class="btn btn-light cancel">Cancel</button>
             </div>
           </div>
         </div>
@@ -334,28 +433,104 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error 
 </template>
 
 <script>
+import { defineComponent, ref, Ref } from "vue";
 import NavbarCompoment from "@/components/NavbarCompoment.vue"; // @ is an alias to /src
 import FooterCompoment from "@/components/FooterCompoment.vue"; // @ is an alias to /src
-export default {
+import axios from "axios"; // Import Axios library for making HTTP requests
+
+export default defineComponent({
   name: "ProfileView",
   components: {
     NavbarCompoment,
     FooterCompoment,
   },
-};
+  data() {
+    return {
+      user: {
+        id: 1,
+        firstName: "Mohamed",
+        lastName: "bougra",
+        email: "mohamed@gmail.com",
+        phone: "0697822768",
+        company: "ensa Marrakech",
+        designation: "talib",
+        bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!",
+        follower: 21,
+        following: 22,
+        password: "ensa2023",
+        TwoFactorAuth: "122",
+        // update Password varaibles
+        oldPassword: "",
+        newPassword: "",
+        confirmNewPassword: "",
+        topics: [
+          {
+            id: 1,
+            name: "Technology",
+            description:
+              "Articles about technology Enim amet aliqua veniam laboris aute culpa ex aliqua. Reprehenderit aliqua id enim anim fugiat ullamco minim exercitation. Ad est dolore incididunt esse ex non et deserunt sit est aliqua. Sunt consectetur ea consectetur labore eu voluptate velit veniam id. Excepteur sunt amet adipisicing dolore dolor elit consequat est et duis pariatur. Cupidatat ex ipsum laborum laboris ea occaecat excepteur dolor. Irure occaecat commodo duis nulla velit nulla minim veniam.",
+            imageUrl: "https://picsum.photos/200/300",
+            url: "/topics/technology",
+            lastUpdated: "12,mai 2023",
+            topic: "Tech",
+          },
+          {
+            id: 2,
+            name: "Science",
+            description:
+              "Articles about science Reprehenderit eiusmod ea deserunt nulla adipisicing dolore enim id dolor qui. Voluptate proident aliqua id consequat anim qui dolor cupidatat. Laboris veniam ullamco ipsum in ut. Dolor amet minim commodo fugiat elit adipisicing exercitation est sunt et. Lorem sit nostrud amet enim. Dolor reprehenderit quis et eu. Irure excepteur est sunt laborum magna.",
+            imageUrl: "https://picsum.photos/200/300",
+            url: "/topics/science",
+            lastUpdated: "12,march 2023",
+            topic: "Science",
+          },
+          // add more topics as needed
+        ],
+      },
+    };
+  },
+  methods: {
+    updatePassword() {
+      // Check that new password and confirm password match
+      if (this.newPassword !== this.confirmNewPassword) {
+        alert("New password and confirm password do not match.");
+        return;
+      }
+
+      // Make HTTP request to update password
+      const userId = 1; // Replace with actual user ID
+      axios
+        .put(`/api/users/${userId}/password`, {
+          oldPassword: this.oldPassword,
+          newPassword: this.newPassword,
+        })
+        .then((response) => {
+          alert("Password updated successfully!");
+          // Clear input fields
+          this.oldPassword = "";
+          this.newPassword = "";
+          this.confirmNewPassword = "";
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Error updating password. Please try again later.");
+        });
+    },
+  },
+});
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 
 .nl {
-  background: #eef2e6 !important;
+  background: #e4e1ea !important;
   color: #372f42 !important;
   font-family: "Montserrat" !important;
   font-weight: 400 !important;
 }
 .nl:hover {
   background: #302939 !important;
-  color: #eef2e6 !important;
+  color: #e4e1ea !important;
 }
 
 .shadow {
@@ -364,7 +539,7 @@ export default {
 
 .profile-tab-nav {
   min-width: 250px;
-  background: #eef2e6 !important;
+  background: #e4e1ea !important;
 }
 
 .tab-content {
@@ -439,5 +614,34 @@ body {
   width: 100px;
   border-radius: 100%;
   border: 5px solid #fff;
+}
+.cancel {
+  background-color: #4539577d;
+}
+.profile {
+  padding-bottom: 4%;
+}
+.card {
+  border: none;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4%;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.card-text {
+  font-size: 0.9rem;
+  color: #757575;
+  margin-bottom: 1rem;
+}
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+}
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
 }
 </style>

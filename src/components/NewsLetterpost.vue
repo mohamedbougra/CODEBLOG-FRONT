@@ -76,7 +76,7 @@ export default {
 
 <style scoped>
 .widgets {
-  background: #322b3c;
+  background: #372f42;
   color: #d7b8ff;
   text-align: center;
   border-radius: 6px;
@@ -89,12 +89,12 @@ export default {
 }
 
 P {
-  color: #eef2e6;
+  color: #e4e1ea;
 }
 
 .form-control {
   border-radius: 20px;
-  background: #eef2e6;
+  background: #e4e1ea;
 }
 
 .subscribe {
@@ -102,9 +102,9 @@ P {
   width: 100% !important;
   border-radius: 20px;
   border: 0px;
-  color: #322b3c;
+  color: #372f42;
 }
 .subscribe:hover {
-  background-color: #eef2e6 !important;
+  background-color: #e4e1ea !important;
 }
 </style>

@@ -15,26 +15,60 @@
         <div class="modal" id="warning-modal">
           <div class="modal-content">
             <i class="fas fa-exclamation-circle"></i>
-            <p style="color: #322b3c">Title should not exceed 75 characters.</p>
+            <p style="color: #372f42">Title should not exceed 75 characters.</p>
             <button class="btn addArticle" @click="hideModal">OK</button>
           </div>
         </div>
       </div>
       <div class="text">
-        <QuillEditor theme="snow" toolbar="full" />
+        <QuillEditor theme="snow" toolbar="full" ref="myEditor" />
       </div>
     </div>
   </div>
 </template>
-<script setup>
+<script>
+import { ref, onMounted } from "vue";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import NavbarCompomentAddArticle from "@/components/NavbarCompomentAddArticle.vue"; // @ is an alias to /src
-</script>
-
-<script>
 export default {
+  components: {
+    QuillEditor,
+    NavbarCompomentAddArticle,
+  },
+  setup() {
+    const myEditor = ref(null);
+    onMounted(() => {
+      console.log(myEditor.value.getEditor());
+    });
+    return { myEditor };
+
+    // const modules = {
+    //     name: 'imageUploader',
+    //     module: ImageUploader,
+    //     options: {
+    //       upload: file => {
+    //         return new Promise((resolve, reject) => {
+    //           const formData = new FormData();
+    //           formData.append("image", file);
+
+    //           axios.post('/upload-image', formData)
+    //           .then(res => {
+    //             console.log(res)
+    //             resolve(res.data.url);
+    //           })
+    //           .catch(err => {
+    //             reject("Upload failed");
+    //             console.error("Error:", err)
+    //           })
+    //         })
+    //       }
+    // return { modules }
+    //     },
+    //   }
+  },
+
   data() {
     return {
       blogTitle: "",
@@ -60,7 +94,7 @@ export default {
 </script>
 <style scoped>
 .form-control {
-  background-color: #eef2e6 !important;
+  background-color: #e4e1ea !important;
   border: 0px !important;
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
@@ -69,7 +103,7 @@ export default {
   height: 6rem;
 }
 .text {
-  background-color: #eef2e6 !important;
+  background-color: #e4e1ea !important;
   border: 0px !important;
   padding: 2%;
   text-align: center;
@@ -86,8 +120,8 @@ export default {
 }
 
 button {
-  background-color: #322b3c;
-  color: #eef2e6;
+  background-color: #372f42;
+  color: #e4e1ea;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
@@ -95,7 +129,7 @@ button {
   transition: all 0.2s ease-in-out;
 }
 button:hover {
-  background-color: #322b3c;
+  background-color: #372f42;
 }
 
 .create-post {
@@ -145,7 +179,7 @@ button:hover {
 .create-post .blog-info {
   display: flex;
   margin-bottom: 32px;
-  background-color: #eef2e6;
+  background-color: #e4e1ea;
 }
 
 .create-post .blog-info input:nth-child(1) {
@@ -172,7 +206,7 @@ button:hover {
 }
 
 .create-post .blog-info .upload-file input {
-  background-color: #eef2e6;
+  background-color: #e4e1ea;
   display: none;
 }
 .ql-container {
@@ -239,7 +273,7 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #eef2e6;
+  background-color: #e4e1ea;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
@@ -248,7 +282,7 @@ button:hover {
 
 .modal-content i {
   font-size: 48px;
-  color: #322b3c;
+  color: #372f42;
 }
 
 .modal-content p {

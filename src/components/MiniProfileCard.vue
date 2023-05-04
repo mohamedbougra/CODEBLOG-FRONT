@@ -13,7 +13,7 @@
           <h3>
             <i
               class="fa-solid fa-file-code"
-              style="padding-left: 2px; color: #322b3c"
+              style="padding-left: 2px; color: #372f42"
             ></i>
             {{ Articles.topic }}
           </h3>
@@ -22,7 +22,7 @@
           <h3>
             <i
               class="fa-solid fa-calendar"
-              style="padding-right: 2px; color: #322b3c"
+              style="padding-right: 2px; color: #372f42"
             ></i>
             {{ Articles.date }}
           </h3>
@@ -31,7 +31,7 @@
           <h3>
             <i
               class="fa-solid fa-eye"
-              style="padding-right: 2px; color: #322b3c"
+              style="padding-right: 2px; color: #372f42"
             ></i>
             {{ Articles.reader }}
           </h3>
@@ -40,14 +40,14 @@
           <button class="btn subscribe">
             <i
               class="fa-solid fa-bookmark"
-              style="padding-right: 2px; color: #322b3c"
+              style="padding-right: 2px; color: #372f42"
             ></i>
             Save
           </button>
           <button class="btn subscribe">
             <i
               class="fa-solid fa-square-share-nodes"
-              style="padding-right: 2px; color: #322b3c"
+              style="padding-right: 2px; color: #372f42"
             ></i>
             Share
           </button>
@@ -56,7 +56,7 @@
       <button class="btn subscribe">
         <i
           class="fa-solid fa-plus"
-          style="padding-right: 12px; color: #322b3c"
+          style="padding-right: 12px; color: #372f42"
         ></i
         >follow
       </button>
@@ -89,19 +89,19 @@ export default {
 <style scoped>
 .widgets {
   background: hwb(80 90% 5% / 0.924);
-  color: #322b3c;
+  color: #372f42;
   border-radius: 9px;
   padding: 7%;
   margin-bottom: 30px;
 }
 
 P {
-  color: #eef2e6;
+  color: #e4e1ea;
 }
 
 .form-control {
   border-radius: 20px;
-  background: #eef2e6;
+  background: #e4e1ea;
 }
 
 .subscribe {
@@ -109,10 +109,10 @@ P {
   width: 100% !important;
   border-radius: 9px;
   border: 0px;
-  color: #322b3c;
+  color: #372f42;
 }
 .subscribe:hover {
-  background-color: #eef2e6 !important;
+  background-color: #e4e1ea !important;
 }
 .container {
   width: 300px;

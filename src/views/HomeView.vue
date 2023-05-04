@@ -10,11 +10,11 @@
         <div class="col-lg-6">
           <div class="subdiv">
             <h1>
-              Welcome to <span style="color: #3f2083">{{ message }}</span>
+              Welcome to <span style="color: #f1c9a7">{{ message }}</span>
             </h1>
           </div>
           <div class="subdiv">
-            <router-link class="btn addArticle" to="/sign-up"
+            <router-link class="btn start" to="/sign-up"
               >Get Started</router-link
             >
           </div>
@@ -281,7 +281,10 @@ export default defineComponent({
   },
 });
 </script>
-<style>
+<style scoped>
+h1 {
+  color: #e4e1ea;
+}
 #articles {
   position: relative;
 }
@@ -290,19 +293,36 @@ export default defineComponent({
   color: #d7b8ff;
 }
 .follow:hover {
-  color: #eef2e6 !important;
+  color: #e4e1ea !important;
 }
 .Header-img {
-  width: 100%;
+  width: 82%;
+  right: 0px;
+}
+.start {
+  background-color: #e4e1ea;
+  color: #372f42;
+  border-radius: 9px;
+}
+.start:hover {
+  color: #e4e1ea;
+  background-color: #372f42;
 }
 .widgets1 {
-  background: #322b3c;
+  background: #372f42;
   color: #d7b8ff;
   border-radius: 6px;
   padding: 15px;
   margin-bottom: 30px;
 }
-
+#title {
+  background: rgb(90, 81, 142);
+  background: linear-gradient(
+    0deg,
+    rgba(90, 81, 142, 1) 0%,
+    rgba(55, 47, 66, 1) 100%
+  );
+}
 .widget1-title {
   margin-bottom: 45px;
   text-align: center;

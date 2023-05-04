@@ -48,7 +48,7 @@ import whoFollow from "@/components/whoFollow.vue"; // @ is an alias to /src
 import MiniProfileCard from "@/components/MiniProfileCard.vue"; // @ is an alias to /src
 import FooterCompoment from "@/components/FooterCompoment.vue"; // @ is an alias to /src
 import Prism from "prismjs";
-import "prismjs/themes/prism.css"; // you can change
+import "prismjs/themes/prism.css";
 
 export default defineComponent({
   name: "ReadArticleView",

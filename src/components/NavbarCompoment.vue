@@ -37,15 +37,6 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <router-link class="btn addArticle nav-link" to="/add-article"
-              ><i
-                class="fa-regular fa-pen-to-square"
-                style="
-                   {
-                    color: #eef2e6;
-                    padding-right: 5%;
-                  }
-                "
-              ></i
               >Write</router-link
             >
           </li>
@@ -65,14 +56,14 @@
   padding-left: 15%;
   padding-right: 15%;
   padding-bottom: 0px;
-  padding-top: 0px;
-  background: #322b3c !important;
+  padding-top: 1%;
+  background: #372f42 !important;
 }
 .searchbar {
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
-  background-color: #302939;
+  background-color: #372f42;
   border-radius: 30px;
   padding: 10px;
 }
@@ -91,12 +82,12 @@
 .searchbar:hover > .search_input {
   padding: 0 10px;
   width: 300px;
-  caret-color: #eef2e6;
+  caret-color: #372f42;
   transition: width 0.4s linear;
 }
 
 .searchbar:hover > .search_icon {
-  background: #eef2e6;
+  background: #e4e1ea;
   color: #302939;
 }
 

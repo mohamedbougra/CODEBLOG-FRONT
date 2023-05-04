@@ -9,6 +9,28 @@
         <form @submit.prevent="login">
           <div class="form-group">
             <input
+              type="text"
+              id="firstName"
+              v-model="firstName"
+              class="form-control"
+              placeholder="first name"
+              required
+              autofocus
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="lastName"
+              v-model="lastName"
+              class="form-control"
+              placeholder="last name"
+              required
+              autofocus
+            />
+          </div>
+          <div class="form-group">
+            <input
               type="email"
               id="username"
               v-model="username"
@@ -82,6 +104,8 @@ export default defineComponent({
   data() {
     return {
       username: "",
+      firstName: "",
+      lastName: "",
       password: "",
     };
   },
@@ -89,6 +113,8 @@ export default defineComponent({
     login() {
       const credentials = {
         username: this.username,
+        fistName: this.firstName,
+        lastName: this.lastName,
         password: this.password,
       };
       login(credentials)

@@ -29,28 +29,17 @@
   padding-bottom: 1%;
   padding-left: 15%;
   padding-right: 15%;
-  background: #322b3c !important;
+  background: #372f42 !important;
 }
 .publish {
-  background: #eef2e6;
+  background: #e4e1ea;
   color: #372f42 !important;
   border-radius: 9px;
   font-family: "Montserrat" !important;
   font-weight: 400 !important;
 }
 .publish:hover {
-  color: #eef2e6 !important;
-  background: #453957 !important;
-}
-.cancel {
-  background: #eef2e63e;
-  color: #eef2e6 !important;
-  border-radius: 9px;
-  font-family: "Montserrat" !important;
-  font-weight: 400 !important;
-}
-.cancel:hover {
-  color: #eef2e6;
+  color: #e4e1ea !important;
   background: #453957 !important;
 }
 </style>

@@ -5,7 +5,7 @@
 <style>
 body {
   font-family: "Montserrat";
-  background: #eef2e6;
+  background: #e4e1ea;
 }
 
 .container-fluid {
@@ -36,15 +36,26 @@ p {
   color: #8f8f8f;
 }
 a {
-  color: #322b3c;
+  color: #372f42;
 }
 
+.cancel {
+  background: #e4e1ea3e;
+  color: #e4e1ea !important;
+  border-radius: 9px;
+  font-family: "Montserrat" !important;
+  font-weight: 400 !important;
+}
+.cancel:hover {
+  color: #e4e1ea;
+  background: #453957 !important;
+}
 /* bottons principales */
 
 .addArticle {
   display: ruby;
   background: #302939;
-  color: #eef2e6 !important;
+  color: #e4e1ea !important;
   border-radius: 9px;
   margin-bottom: 0px;
   border: 0px;
@@ -53,25 +64,25 @@ a {
 }
 .addArticle:hover {
   color: #302939 !important;
-  background: #eef2e6 !important;
+  background: #e4e1ea !important;
 }
 
 .login:hover {
   color: #302939 !important;
-  background: #eef2e6 !important;
+  background: #e4e1ea !important;
 }
 
 .login {
-  background: #322b3c;
-  color: #eef2e6 !important;
+  background: #372f42;
+  color: #e4e1ea !important;
   border-radius: 9px;
   margin-bottom: 0px;
-  border-color: #eef2e6;
+  border-color: #e4e1ea;
   font-family: "Montserrat" !important;
   font-weight: 400 !important;
 }
 .recommaded {
-  background: #eef2e6;
+  background: #e4e1ea;
   color: #372f42 !important;
   border-radius: 9px;
   margin-bottom: 0px;
@@ -80,7 +91,7 @@ a {
 }
 .recommaded:hover {
   background: #302939;
-  color: #eef2e6 !important;
+  color: #e4e1ea !important;
 }
 
 /* section 1 : Title */
@@ -94,6 +105,6 @@ a {
 /* section 1 : features */
 #features {
   padding: 7% 15%;
-  background: #eef2e6;
+  background: #e4e1ea;
 }
 </style>

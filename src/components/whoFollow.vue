@@ -38,6 +38,6 @@ export default {
 
 <style scoped>
 .follow1 {
-  color: #eef2e6;
+  color: #e4e1ea;
 }
 </style>

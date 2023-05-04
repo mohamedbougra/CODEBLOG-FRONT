@@ -67,13 +67,13 @@
               </p>
             </div>
             <div class="divSub2">
-              <router-link class="btn btn-sm addArticle" to="/article"
+              <router-link class="btn btn-sm more" to="/article"
                 >more</router-link
               >
               <router-link class="btn btn-sm addArticle save" to="">
                 <i
                   class="fa-solid fa-bookmark"
-                  style="padding-right: 2px; color: #322b3c"
+                  style="padding-right: 2px; color: #372f42"
                 ></i>
               </router-link>
               <span style="position: absolute; right: 1rem; color: #8f8f8f">
@@ -114,6 +114,12 @@ export default {
 }
 .card-body {
   height: 66.66%;
+}
+.more {
+  background-color: transparent;
+  color: #302939;
+  border-color: #302939;
+  border-radius: 9px;
 }
 .rounded-4 {
   border-radius: 10px !important;
@@ -167,6 +173,7 @@ a:focus {
 .list-inline-item {
   padding-top: 0.8rem;
   padding-right: 0.8rem;
+  padding-left: 0.8rem;
   padding-bottom: 0.8rem;
 }
 .cards-style {

@@ -28,7 +28,7 @@ export default {
 <style>
 .title {
   padding-bottom: 4%;
-  color: #322b3c;
+  color: #372f42;
 }
 .imageArticle {
   padding-left: 2%;
@@ -40,7 +40,7 @@ export default {
 }
 
 .article h1 {
-  color: #322b3c;
+  color: #372f42;
   font-size: 2rem;
   font-weight: 600;
   font-family: "Source Serif Pro", serif;
@@ -79,7 +79,7 @@ export default {
   color: #a86df6;
 }
 .article a:hover {
-  color: #322b3c;
+  color: #372f42;
   line-break: none;
 }
 
@@ -98,7 +98,7 @@ export default {
   display: block;
   padding: 0.1em 0.9em;
   border-radius: 9px;
-  border-color: #eef2e6;
+  border-color: #e4e1ea;
   font-family: "Montserrat";
   font-weight: 400;
   cursor: pointer;
@@ -106,7 +106,7 @@ export default {
 
 .copy-btn:hover {
   background-color: #eef;
-  color: #322b3c;
+  color: #372f42;
 }
 
 /* .btn-outline-primary {
