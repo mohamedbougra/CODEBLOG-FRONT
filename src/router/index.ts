@@ -5,11 +5,17 @@ import signUpView from "../views/signUpView.vue";
 import ProfileView from "../views/ProfileView.vue";
 import ReadArticleView from "../views/ReadArticleView.vue";
 import AddArticleView from "../views/AddArticleView.vue";
+import ContactUs from "../views/ContactUs.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "home",
     component: HomeView,
+  },
+  {
+    path: "/contact-us",
+    name: "contact-us",
+    component: ContactUs,
   },
   {
     path: "/login",
