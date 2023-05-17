@@ -43,7 +43,7 @@ export default {
       console.log(myEditor.value.getEditor());
     });
     return { myEditor };
-
+    
     // const modules = {
     //     name: 'imageUploader',
     //     module: ImageUploader,
