@@ -4,22 +4,75 @@
   <div class="create-post">
     <div class="container-fluid">
       <div class="blog-info">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Title"
-          v-model="blogTitle"
-          @input="checkTitleLength"
-          maxlength="75"
-        />
-        <div class="modal" id="warning-modal">
-          <div class="modal-content">
-            <i class="fas fa-exclamation-circle"></i>
-            <p style="color: #372f42">Title should not exceed 75 characters.</p>
-            <button class="btn addArticle" @click="hideModal">OK</button>
+        <div class="col-12">
+          <div class="form-ctrl">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Title"
+              v-model="blogTitle"
+              @input="checkTitleLength"
+              maxlength="75"
+            />
+          </div>
+
+          <div class="row">
+            <div class="col-6 card form-ctrl left">
+              <div class="row">
+                <div class="col-6"><p>Add Hero image :</p></div>
+                <div class="col-6">
+                  <Toast />
+                  <FileUpload
+                    mode="basic"
+                    name="demo[]"
+                    url="./upload.php"
+                    accept="image/*"
+                    :maxFileSize="1000000"
+                    @upload="onUpload"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 card form-ctrl left">
+              <MultiSelect
+                v-model="selectedTags"
+                :options="itTags"
+                placeholder="Select topic tags"
+                display="chip"
+                class="w-full md:w-20rem"
+                @change="checkSelectionLimit"
+                :max="3"
+              >
+                <template #option="slotProps">
+                  <div class="flex align-items-center">
+                    <div>{{ slotProps.option }}</div>
+                  </div>
+                </template>
+                <template #footer>
+                  <div class="py-2 px-3">
+                    <b>{{ selectedTags ? selectedTags.length : 0 }}</b>
+                    item{{
+                      (selectedTags ? selectedTags.length : 0) > 1 ? "s" : ""
+                    }}
+                    selected.
+                  </div>
+                </template>
+              </MultiSelect>
+            </div>
+          </div>
+          <div class="modal" id="warning-modal">
+            <div class="modal-content">
+              <i class="fas fa-exclamation-circle"></i>
+              <p style="color: #372f42">
+                Title should not exceed 75 characters.
+              </p>
+              <button class="btn addArticle" @click="hideModal">OK</button>
+            </div>
           </div>
         </div>
       </div>
+      <div class="clo-12"></div>
       <div class="text">
         <QuillEditor theme="snow" toolbar="full" ref="myEditor" />
       </div>
@@ -31,6 +84,7 @@ import { ref, onMounted } from "vue";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.bubble.css";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
+
 import NavbarCompomentAddArticle from "@/components/NavbarCompomentAddArticle.vue"; // @ is an alias to /src
 export default {
   components: {
@@ -43,36 +97,27 @@ export default {
       console.log(myEditor.value.getEditor());
     });
     return { myEditor };
-    
-    // const modules = {
-    //     name: 'imageUploader',
-    //     module: ImageUploader,
-    //     options: {
-    //       upload: file => {
-    //         return new Promise((resolve, reject) => {
-    //           const formData = new FormData();
-    //           formData.append("image", file);
-
-    //           axios.post('/upload-image', formData)
-    //           .then(res => {
-    //             console.log(res)
-    //             resolve(res.data.url);
-    //           })
-    //           .catch(err => {
-    //             reject("Upload failed");
-    //             console.error("Error:", err)
-    //           })
-    //         })
-    //       }
-    // return { modules }
-    //     },
-    //   }
   },
 
   data() {
     return {
       blogTitle: "",
       showWarning: false,
+      itTags: [
+        "spring boot",
+        "java",
+        "javascript",
+        "html",
+        "css",
+        "react",
+        "angular",
+        "node.js",
+        "mongodb",
+      ],
+      selectedTags: null,
+      files: [],
+      totalSize: 0,
+      totalSizePercent: 0,
     };
   },
   methods: {
@@ -89,9 +134,25 @@ export default {
     hideModal() {
       document.getElementById("warning-modal").style.display = "none";
     },
+
+    checkSelectionLimit() {
+      if (this.selectedTags.length > 3) {
+        this.selectedTags = this.selectedTags.slice(0, 3); // Limit selection to three items
+      }
+    },
+
+    onUpload() {
+      this.$toast.add({
+        severity: "info",
+        summary: "Success",
+        detail: "File Uploaded",
+        life: 3000,
+      });
+    },
   },
 };
 </script>
+
 <style scoped>
 .form-control {
   background-color: #e4e1ea !important;
@@ -102,13 +163,19 @@ export default {
   text-align: center;
   height: 6rem;
 }
+.form-ctrl {
+  padding: 1%;
+}
 .text {
   background-color: #e4e1ea !important;
   border: 0px !important;
   padding: 2%;
   text-align: center;
 }
-
+::v-deep .card {
+  background-color: #e4e1ea !important;
+  border: none;
+}
 .wrn,
 .form-control::placeholder {
   font-family: "Poppins", sans-serif;
@@ -136,6 +203,9 @@ button:hover {
   position: relative;
   height: 100%;
 }
+.left {
+  text-align: left;
+}
 
 .create-post button {
   margin-top: 0;
@@ -145,7 +215,9 @@ button:hover {
   text-decoration: none;
   color: #fff;
 }
-
+.selected-tags {
+  margin-top: 10px;
+}
 .create-post label,
 .create-post button,
 .create-post .router-button {
@@ -284,7 +356,55 @@ button:hover {
   font-size: 48px;
   color: #372f42;
 }
+::v-deep .ql-editor p {
+  font-size: medium;
+  color: #000;
+  font-family: "Montserrat";
+}
+::v-deep .ql-editor {
+  box-sizing: border-box;
+  line-height: 1.42;
+  height: 700px;
+  outline: none;
+  overflow-y: auto;
+  padding: 12px 15px;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #eeecf1;
+}
 
+/* tags */
+::v-deep .p-multiselect-token {
+  background: #453957 !important;
+  color: #fff !important;
+}
+::v-deep .p-multiselect-label {
+  background-color: #e4e1ea;
+  color: #6c757d;
+}
+::v-deep .p-multiselect .p-multiselect-trigger {
+  background: #e4e1ea;
+  color: #372f42;
+}
+::v-deep .p-button {
+  color: #e4e1ea;
+  background: #372f42;
+  border: 1px solid #372f42;
+}
+::v-deep .p-fileupload-choose:not(.p-disabled):hover {
+  color: #372f42;
+  background: #d7b8ff;
+  border: 1px solid #372f42;
+}
+/* upload IMG */
+::v-deep .p-fileupload .p-fileupload-buttonbar {
+  background: #eeecf1;
+  justify-content: center;
+}
 .modal-content p {
   font-size: 18px;
   margin: 20px 0;

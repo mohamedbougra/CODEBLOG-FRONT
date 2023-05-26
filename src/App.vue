@@ -9,8 +9,7 @@ body {
 }
 
 .container-fluid {
-  padding: 3% 8%;
-  zoom: 0.6;
+  padding: 3% 4%;
 }
 
 h1 {

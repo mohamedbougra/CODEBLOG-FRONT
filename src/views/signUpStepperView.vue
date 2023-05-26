@@ -76,7 +76,7 @@
           <div class="row">
             <div class="col form-group">
               <label for="firstName">fist Name</label>
-              <input
+              <InputText
                 type="text"
                 class="form-control"
                 id="firstName"
@@ -85,7 +85,7 @@
             </div>
             <div class="col form-group">
               <label for="lastName">last Name</label>
-              <input
+              <InputText
                 type="text"
                 class="form-control"
                 id="lastName"
@@ -94,27 +94,29 @@
             </div>
             <div class="w-100"></div>
             <div class="col form-group">
-              <label for="linkedinProfile">LinkedIn Profile</label>
-              <input
-                type="text"
+              <label for="email">Email</label>
+              <InputText
+                type="email"
                 class="form-control"
-                id="linkedinProfile"
-                placeholder="https://www.linkedin.com/in/username"
+                id="email"
+                placeholder="example@xyz.xyx"
               />
             </div>
+
             <div class="col form-group">
-              <label for="githubProfile">GitHub Profile</label>
-              <input
-                type="text"
+              <label for="phone">Phone</label>
+              <InputMask
                 class="form-control"
-                id="githubProfile"
-                placeholder="https://github.com/username"
+                v-model="value2"
+                date="phone"
+                mask="(999) 999-999999"
+                placeholder="(212) 699-999999"
               />
             </div>
             <div class="w-100"></div>
             <div class="col form-group">
               <label for="password">Password</label>
-              <input
+              <InputText
                 type="password"
                 class="form-control"
                 id="password"
@@ -123,7 +125,7 @@
             </div>
             <div class="col form-group">
               <label for="confirmPassword">Confirm Password</label>
-              <input
+              <InputText
                 type="password"
                 class="form-control"
                 id="confirmPassword"
@@ -156,24 +158,24 @@
             </div>
             <div class="w-100"></div>
             <div class="col form-group">
-              <label for="domain">Domain</label>
-              <select class="form-control" id="domain">
-                <option value="java">Java</option>
-                <option value="devops">DevOps</option>
-                <option value="javascript">JavaScript</option>
-                <!-- Add more options for other domains -->
-              </select>
-            </div>
-            <div class="col form-group">
-              <label for="topics">Topics you love to write about</label>
+              <label for="linkedinProfile">LinkedIn Profile</label>
               <input
                 type="text"
                 class="form-control"
-                id="topics"
-                placeholder="Enter topics you love to write about"
+                id="linkedinProfile"
+                placeholder="https://www.linkedin.com/in/username"
               />
             </div>
-            <div class="w-100"></div>
+            <div class="col form-group">
+              <label for="githubProfile">GitHub Profile</label>
+              <input
+                type="text"
+                class="form-control"
+                id="githubProfile"
+                placeholder="https://github.com/username"
+              />
+            </div>
+
             <div class="col-12 form-group">
               <label for="bio">Bio</label>
               <textarea
@@ -188,47 +190,76 @@
 
         <div class="stepper-pane" v-if="step == 3">
           <!-- Interests and Topics Section -->
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              id="writer"
-              value="writer"
+          <div class="w-100"></div>
+          <div class="col form-group">
+            <label for="domain">Domain</label>
+
+            <Dropdown
+              id="domain"
+              v-model="selectedCity"
+              :options="cities"
+              optionLabel="name"
+              class="form-control"
             />
-            <label class="form-check-label" for="writer"> Writer </label>
           </div>
-          <div class="form-check">
+          <div class="col form-group">
+            <label for="topics">Topics you love to write about</label>
             <input
-              class="form-check-input"
-              type="checkbox"
-              id="reader"
-              value="reader"
+              type="text"
+              class="form-control"
+              id="topics"
+              placeholder="Enter topics you love to write about"
             />
-            <label class="form-check-label" for="reader"> Reader </label>
+          </div>
+          <div class="w-100"></div>
+          <div class="form-group">
+            <label> You want to be </label>
+          </div>
+          <div class="form-group">
+            <div class="col form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="writer"
+                value="writer"
+              />
+              <label class="form-check-label" for="writer"> Writer </label>
+            </div>
+            <div class="col form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="reader"
+                value="reader"
+              />
+              <label class="form-check-label" for="reader"> Reader </label>
+            </div>
           </div>
         </div>
 
         <div class="stepper-pane" v-if="step == 4">
           <!-- Account Type and Policies Section -->
           <div class="form-group">
-            <label for="email">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="Enter your email address"
-            />
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              id="acceptPolicy"
-              value="accept"
-            />
-            <label class="form-check-label" for="acceptPolicy">
-              I accept the policies and terms
-            </label>
+            <div class="card flex flex-wrap justify-content-center gap-3">
+              <div class="flex align-items-center">
+                <Checkbox
+                  v-model="RW"
+                  inputId="ingredient1"
+                  name="RW"
+                  value="Cheese"
+                />
+                <label for="ingredient1" class="ml-2"> Reader </label>
+              </div>
+              <div class="flex align-items-center">
+                <Checkbox
+                  v-model="RW"
+                  inputId="ingredient2"
+                  name="RW"
+                  value="Mushroom"
+                />
+                <label for="ingredient2" class="ml-2"> Writer </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -250,6 +281,15 @@ export default {
   name: "App",
   data: () => ({
     step: 1,
+    selectedCity: null,
+    cities: [
+      { name: "software" },
+      { name: "tech" },
+      { name: "prof" },
+      { name: "student" },
+      { name: "none" },
+    ],
+    WR: null,
   }),
   computed: {
     stepperProgress() {
@@ -274,6 +314,10 @@ body {
 .tx-green-1 {
   color: #75cc65;
   font-weight: 600;
+}
+
+.form-check {
+  text-align: left;
 }
 
 .wrapper-stepper {
@@ -434,5 +478,9 @@ body {
 }
 .form-group {
   text-align: left;
+}
+
+::v-deep .p-inputtext {
+  /* padding: 0%; */
 }
 </style>
