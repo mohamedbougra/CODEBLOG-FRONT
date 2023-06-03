@@ -7,12 +7,12 @@
   <div class="row justify-content-center">
     <div class="col-md-10">
       <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <h1 class="heading mb-4">Let's talk about everything!</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas debitis, fugit natus?</p>
+          <p></p>
           <p><img src="../assets/undraw-contact.svg" alt="Image" class="img-fluid"></p>
         </div>
-   <div class="col-md-6">
+   <div class="col-md-6 goo">
           <form class="mb-5" method="post" id="contactForm" name="contactForm" novalidate="novalidate">
             <div class="form-group">
               <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
@@ -59,9 +59,14 @@
 
 .container-fluid{
     padding: 7rem 0;
+    padding-top: 0%;
 }
 .col-md-6{
   padding: 7rem 0;
+  padding-top: 8%;
+}
+.col-md-4{
+  padding-top: 6%;
 }
 
 </style>

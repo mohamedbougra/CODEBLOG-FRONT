@@ -76,10 +76,17 @@
                   style="padding-right: 2px; color: #372f42"
                 ></i>
               </router-link>
-              <span style="position: absolute; right: 1rem; color: #8f8f8f">
-                <i class="fa-solid fa-eye" style="padding-right: 2px"></i>
-                {{ topic.reader }}
-              </span>
+              <span style="position: absolute; right: 1rem; color: #8f8f8f; margin: 10px;">
+  <i class="fa-solid fa-eye" style="padding-right: 7px;"></i>
+  
+  {{ topic.reader }}
+  
+  <i class="fa-solid fa-regular fa-comment" style="padding-left: 10px;"></i>
+  
+  {{ topic.reader }}
+</span>
+
+              
             </div>
           </div>
         </div>

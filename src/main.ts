@@ -18,7 +18,8 @@ import InputMask from "primevue/inputmask";
 import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
-
+import Paginator from 'primevue/paginator';
+import Card from 'primevue/card';
 const app = createApp(App);
 
 app
@@ -35,5 +36,7 @@ app
   .component("Button", Button)
   .component("ProgressBar", ProgressBar)
   .component("Badge", Badge)
+  .component("Paginator", Paginator)
+  .component("Card", Card)
   .component("InputMask", InputMask)
   .mount("#app");

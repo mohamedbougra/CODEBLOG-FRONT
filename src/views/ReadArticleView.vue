@@ -18,16 +18,17 @@
           <div class="col-lg-3">
             <MiniProfileCard :Articles="Articles" />
             <!-- Who Follow -->
-            <div class="my-3 p-3 rounded shadow-sm widgets1">
-              <h2 class="widget1-title">Suggested people to follow</h2>
+            <div class="sugg my-3 p-3 rounded shadow-sm ">
+              <h2 class="widget1-title" style="color: #e4e1ea">Suggested people to follow</h2>
               <whoFollow :whoFollow="whoFollow" />
               <small class="d-block text-right mt-3">
                 <a href="#" class="follow">All suggestions</a>
               </small>
             </div>
+            
             <!-- popular Topics -->
-            <div class="widgets1">
-              <h2 class="widget1-title">popular Topics</h2>
+            <div class="sugg">
+              <h2 class="widget1-title" style="color: #e4e1ea">popular Topics</h2>
               <RecommendedTopics :topics="recommendedTopic" />
             </div>
           </div>
@@ -36,6 +37,59 @@
     </section>
   </div>
 
+  <div class="comment">
+   
+    <div class="mt-3 d-flex flex-row align-items-center p-3 form-color">
+
+<img src="https://i.imgur.com/zQZSWrt.jpg" width="50" class="rounded-circle mr-2">
+<input type="text" class="form-control" placeholder="Enter your comment...">
+
+</div>
+
+<div class="row">
+      <div class="col-md-10" v-for="comment in visibleComments" :key="comment.id">
+        <div class="media g-mb-30 media-comment">
+          <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15 comment-avatar" :src="comment.avatar" alt="Image Description">
+          <div class="media-body card shadow border g-bg-secondary g-pa-30">
+            <div class="g-mb-15">
+              <h5 class="h5 g-color-gray-dark-v1 mb-0">{{ comment.author }}</h5>
+              <span class="g-color-gray-dark-v4 g-font-size-12">{{ comment.timestamp }}</span>
+            </div>
+            <p>{{ comment.content }}</p>
+            <ul class="list-inline d-sm-flex my-0">
+              <li class="list-inline-item g-mr-20">
+                <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                  <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+                  {{ comment.likes }}
+                </a>
+              </li>
+              <li class="list-inline-item g-mr-20">
+                <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                  <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                  {{ comment.dislikes }}
+                </a>
+              </li>
+              <li class="list-inline-item ml-auto">
+                <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                  <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
+                  Reply
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+    <div class="text-center mt-3" v-if="shouldShowReadMoreButton">
+      <button class="btn btn-link" @click="loadMoreComments">
+        Read more comments
+      </button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
   <!-- footer -->
   <FooterCompoment></FooterCompoment>
 </template>
@@ -63,6 +117,45 @@ export default defineComponent({
 
   data() {
     return {
+      comments: [
+        {
+          id: 1,
+          avatar: 'https://bootdey.com/img/Content/avatar/avatar7.png',
+          author: 'John Doe',
+          timestamp: '5 days ago',
+          content: 'Cras sit amet nibh libero, in gravida nulla...',
+          likes: 178,
+          dislikes: 34
+        },
+        {
+          id: 2,
+          avatar: 'https://bootdey.com/img/Content/avatar/avatar1.png',
+          author: 'Jane Smith',
+          timestamp: '2 days ago',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+          likes: 95,
+          dislikes: 10
+        },
+        {
+          id: 1,
+          avatar: 'https://bootdey.com/img/Content/avatar/avatar7.png',
+          author: 'John Doe',
+          timestamp: '5 days ago',
+          content: 'Cras sit amet nibh libero, in gravida nulla...',
+          likes: 178,
+          dislikes: 34
+        },
+        {
+          id: 2,
+          avatar: 'https://bootdey.com/img/Content/avatar/avatar1.png',
+          author: 'Jane Smith',
+          timestamp: '2 days ago',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+          likes: 95,
+          dislikes: 10
+        }
+        // Add more comment objects as needed
+      ],
       Articles: {
         id: 4,
         name: "Entrepreneurship stories you may have missed this week ",
@@ -102,6 +195,7 @@ export default defineComponent({
           url: "#",
         },
       ],
+      visibleCommentCount: 3,
       recommendedTopic: [
         {
           id: 1,
@@ -131,6 +225,7 @@ export default defineComponent({
       ],
     };
   },
+
   mounted() {
     window.Prism = window.Prism || {};
     window.Prism.manual = true;
@@ -146,7 +241,23 @@ export default defineComponent({
       document.execCommand("copy");
       document.body.removeChild(temp);
     },
+    loadMoreComments() {
+      // Increase the visible comment count to show more comments
+      this.visibleCommentCount += 3; // Increase by the desired number of comments
+    }
+
   },
+  computed: {
+    visibleComments() {
+      // Return the subset of comments to be displayed
+      return this.comments.slice(0, this.visibleCommentCount);
+    },
+    shouldShowReadMoreButton() {
+      // Check if there are more comments to show
+      return this.visibleCommentCount < this.comments.length;
+    }
+  },
+
 });
 </script>
 <style>
@@ -177,7 +288,13 @@ pre[class*="language-"] {
   -ms-hyphens: none;
   hyphens: none;
 }
+.comment-avatar {
+  border-radius: 50%;
+}
 
+.sugg{
+  background-color: #35303e;
+}
 /* Code blocks */
 pre[class*="language-"] {
   padding: 1em;
@@ -196,6 +313,7 @@ pre[class*="language-"] {
   padding: 0.1em;
   border-radius: 0.3em;
 }
+
 
 .token.comment,
 .token.prolog,
@@ -217,80 +335,75 @@ pre[class*="language-"] {
 .token.tag {
   color: #96cbfe;
 }
-
-.token.class-name {
-  color: #ffffb6;
-  text-decoration: underline;
+body{
+    margin-top:20px;
+    background:#eee;
+}
+@media (min-width: 0) {
+    .g-mr-15 {
+        margin-right: 1.07143rem !important;
+    }
+}
+@media (min-width: 0){
+    .g-mt-3 {
+        margin-top: 0.21429rem !important;
+    }
 }
 
-.token.boolean,
-.token.constant {
-  color: #99cc99;
+.g-height-50 {
+    height: 50px;
 }
 
-.token.symbol,
-.token.deleted {
-  color: #f92672;
+.g-width-50 {
+    width: 50px !important;
 }
 
-.token.number {
-  color: #ff73fd;
+@media (min-width: 0){
+    .g-pa-30 {
+        padding: 2.14286rem !important;
+    }
 }
 
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #a8ff60;
+.g-bg-secondary {
+    background-color: #fafafa !important;
 }
 
-.token.variable {
-  color: #c6c5fe;
+.u-shadow-v18 {
+    box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
 }
 
-.token.operator {
-  color: #ededed;
+.g-color-gray-dark-v4 {
+    color: #777 !important;
 }
 
-.token.entity {
-  color: #ffffb6;
-  cursor: help;
+.g-font-size-12 {
+    font-size: 0.85714rem !important;
 }
 
-.token.url {
-  color: #96cbfe;
+.media-comment {
+    margin-top:20px
+}
+.form-control{
+
+height: 48px;
+width:  80%;
+border-radius: 50px;
 }
 
-.language-css .token.string,
-.style .token.string {
-  color: #87c38a;
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #35b69f;
+  outline: 0;
+  box-shadow: none;
+  text-indent: 10px;
+}
+.comment{
+  padding-left: 3%;
+ 
+}
+.btn{
+  color: #302939;
 }
 
-.token.atrule,
-.token.attr-value {
-  color: #f9ee98;
-}
-
-.token.function {
-  color: #dad085;
-}
-
-.token.regex {
-  color: #e9c062;
-}
-
-.token.important {
-  color: #fd971f;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
 </style>

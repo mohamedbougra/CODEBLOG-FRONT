@@ -5,12 +5,13 @@
 <style>
 body {
   font-family: "Montserrat";
-  background: #e4e1ea;
+  background: #efecf6;
 }
 
 .container-fluid {
   padding: 3% 4%;
 }
+
 
 h1 {
   padding-top: 4%;
@@ -41,13 +42,13 @@ a {
 
 .cancel {
   background: #e4e1ea3e;
-  color: #e4e1ea !important;
+  color: #efecf6 !important;
   border-radius: 9px;
   font-family: "Montserrat" !important;
   font-weight: 400 !important;
 }
 .cancel:hover {
-  color: #e4e1ea;
+  color: #efecf6;
   background: #453957 !important;
 }
 /* bottons principales */
@@ -64,12 +65,12 @@ a {
 }
 .addArticle:hover {
   color: #302939 !important;
-  background: #e4e1ea !important;
+  background: #efecf6 !important;
 }
 
 .login:hover {
   color: #302939 !important;
-  background: #e4e1ea !important;
+  background: #efecf6 !important;
 }
 
 .login {
@@ -82,7 +83,7 @@ a {
   font-weight: 400 !important;
 }
 .recommaded {
-  background: #e4e1ea;
+  background: #efecf6;
   color: #372f42 !important;
   border-radius: 9px;
   margin-bottom: 0px;
@@ -105,6 +106,6 @@ a {
 /* section 1 : features */
 #features {
   padding: 7% 15%;
-  background: #e4e1ea;
+  background: #efecf6;
 }
 </style>

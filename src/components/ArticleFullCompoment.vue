@@ -36,12 +36,12 @@ export default {
   padding-bottom: 5%;
   border-top-right-radius: 3%;
   border-top-left-radius: 3%;
-  width: 100%;
+  width: 574px;
 }
 
 .article h1 {
   color: #372f42;
-  font-size: 2rem;
+  font-size: 0rem;
   font-weight: 600;
   font-family: "Source Serif Pro", serif;
   padding-bottom: 2%;
@@ -59,7 +59,7 @@ export default {
   padding-bottom: 2%;
 }
 .article p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
   color: #000000;
   font-family: "Source Serif Pro", serif;

@@ -14,7 +14,7 @@
           class="col-md-8 py-4 py-md-5 d-flex align-items-center pl-md-5 aside-stretch-right"
         >
      
-          <form action="#" class="subscribe-form w-100">
+          <form action="/Result" class="subscribe-form w-100">
             <div class="form-group d-flex">
               <input
                 type="text"
@@ -32,9 +32,18 @@
         <div class="col-md-3 col-lg-6 order-md-last">
           <div class="row justify-content-end">
             <div class="col-md-12 col-lg-9 text-md-right mb-md-0 mb-4">
-              <h2 class="footer-heading">
-                <a href="#" class="logo">CodeBlog</a>
-              </h2>
+              <h1 class="footer-heading">
+                <router-link class="navbar-brand" to="/">
+        <img
+          src="../assets/logo/CBlogo-nav.svg"
+          alt="CodeBlog Logo"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+        />
+        CodeBlog</router-link
+      >
+              </h1>
               <p class="copyright">
                 Copyright ©2023 All rights reserved
                 <a href="#" target="_blank">CodeBlog.com</a>
@@ -48,29 +57,20 @@
               <h2 class="footer-heading">Information</h2>
               <ul class="list-unstyled">
                 <li>
-                  <a href="#" class="py-1 d-block"
+                  <a href="/about" class="py-1 d-block"
                     ><span class="ion-ios-checkmark-circle-outline mr-2"></span
                     >About</a
                   >
                 </li>
-                <li>
-                  <a href="#" class="py-1 d-block"
-                    ><span class="ion-ios-checkmark-circle-outline mr-2"></span
-                    >Data</a
-                  >
-                </li>
+               
 
                 <li>
                   <router-link class="py-1 d-block" to="/contact-us"><span class="ion-ios-checkmark-circle-outline mr-2"></span
                     >Contact Us
                   </router-link>
                 </li>
-                <li>
-                  <a href="#" class="py-1 d-block"
-                    ><span class="ion-ios-checkmark-circle-outline mr-2"></span
-                    >Support</a
-                  >
-                </li>
+           
+               
               </ul>
             </div>
             <div class="col-md-4 mb-md-0 mb-4">
@@ -82,12 +82,7 @@
                     >Download</a
                   >
                 </li>
-                <li>
-                  <a href="#" class="py-1 d-block"
-                    ><span class="ion-ios-checkmark-circle-outline mr-2"></span
-                    >Bike Provider</a
-                  >
-                </li>
+                
                 <li>
                   <a href="#" class="py-1 d-block"
                     ><span class="ion-ios-checkmark-circle-outline mr-2"></span
@@ -96,29 +91,7 @@
                 </li>
               </ul>
             </div>
-            <div class="col-md-4 mb-md-0 mb-4">
-              <h2 class="footer-heading">API</h2>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#" class="py-1 d-block"
-                    ><span class="ion-ios-checkmark-circle-outline mr-2"></span
-                    >Documentation</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="py-1 d-block"
-                    ><span class="ion-ios-checkmark-circle-outline mr-2"></span
-                    >Credential</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="py-1 d-block"
-                    ><span class="ion-ios-checkmark-circle-outline mr-2"></span
-                    >Developer info</a
-                  >
-                </li>
-              </ul>
-            </div>
+           
           </div>
         </div>
       </div>

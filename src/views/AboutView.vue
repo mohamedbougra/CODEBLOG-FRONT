@@ -1,7 +1,7 @@
 <template>
   <NavbarCompoment></NavbarCompoment>
 
-  <div class="bg-light">
+  <div class="about">
     <div class="container py-5">
       <div class="row h-100 align-items-center py-5">
         <div class="col-lg-6">
@@ -49,7 +49,7 @@
           />
         </div>
       </div>
-      <div class="row align-items-center">
+      <div class=" row align-items-center">
         <div class="col-lg-5 px-5 mx-auto">
           <img
             src="https://bootstrapious.com/i/snippets/sn-about/img-2.jpg"
@@ -57,7 +57,7 @@
             class="img-fluid mb-4 mb-lg-0"
           />
         </div>
-        <div class="col-lg-6">
+        <div class=" col-lg-6">
           <i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
           <h2 class="font-weight-light">Why Us</h2>
           <p class="font-italic text-muted mb-4">
@@ -81,7 +81,7 @@
     </div>
   </div>
 
-  <div class="bg-light py-5">
+  <div class="about py-5">
     <div class="container py-5">
       <div class="row mb-4">
         <div class="col-lg-5">
@@ -127,6 +127,7 @@
               </li>
             </ul>
           </div>
+          
         </div>
         <div class="col-xl-3 col-sm-6 mb-5">
           <div class="bg-white rounded shadow-sm py-5 px-4">
@@ -162,7 +163,40 @@
             </ul>
           </div>
         </div>
-
+        <div class="col-xl-3 col-sm-6 mb-5">
+          <div class="bg-white rounded shadow-sm py-5 px-4">
+            <img
+              src="https://bootstrapious.com/i/snippets/sn-about/avatar-3.png"
+              alt=""
+              width="100"
+              class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
+            />
+            <h5 class="mb-0">Salaheddine Outl</h5>
+            <span class="small text-uppercase text-muted">CEO - Founder</span>
+            <ul class="social mb-0 list-inline mt-3">
+              <li class="list-inline-item">
+                <a href="#" class="social-link"
+                  ><i class="fa fa-facebook-f"></i
+                ></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="social-link"
+                  ><i class="fa fa-twitter"></i
+                ></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="social-link"
+                  ><i class="fa fa-instagram"></i
+                ></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#" class="social-link"
+                  ><i class="fa fa-linkedin"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div class="col-xl-3 col-sm-6 mb-5">
           <div class="bg-white rounded shadow-sm py-5 px-4">
             <img
@@ -200,22 +234,18 @@
       </div>
     </div>
   </div>
-  <footer class="bg-light pb-5">
-    <div class="container text-center">
-      <p class="font-italic text-muted mb-0">
-        &copy; Copyrights Company.com All rights reserved.
-      </p>
-    </div>
-  </footer>
+  <FooterCompoment></FooterCompoment>
 </template>
 
 <script>
 import NavbarCompoment from "@/components/NavbarCompoment.vue";
+import FooterCompoment from "@/components/FooterCompoment.vue";
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "AboutView",
   components: {
     NavbarCompoment,
+    FooterCompoment,
   },
 });
 </script>
@@ -224,7 +254,7 @@ export default defineComponent({
 .social-link {
   width: 30px;
   height: 30px;
-  border: 1px solid #ddd;
+  border: 1px solid #efecf6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,8 +266,11 @@ export default defineComponent({
 
 .social-link:hover,
 .social-link:focus {
-  background: #ddd;
+  background: #efecf6;
   text-decoration: none;
   color: #555;
+}
+.about{
+  background-color: #f2f0f7;
 }
 </style>

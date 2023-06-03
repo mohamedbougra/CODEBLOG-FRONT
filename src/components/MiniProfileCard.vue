@@ -7,31 +7,33 @@
       />
     </div>
     <div class="lower">
-      <h2 class="card-title widget-title">{{ Articles.autour }}</h2>
+      <a href="profile" style="color: white;">
+  <h2 class="card-title widget-title">{{ Articles.autour }}</h2>
+</a>
       <ul class="">
         <li class="d-flex">
-          <h3>
+          <h3  style="color:aliceblue">
             <i
               class="fa-solid fa-file-code"
-              style="padding-left: 2px; color: #372f42"
+              style="padding-left: 2px; color: #ccc"
             ></i>
             {{ Articles.topic }}
           </h3>
         </li>
         <li class="d-flex">
-          <h3>
+          <h3  style="color:aliceblue">
             <i
               class="fa-solid fa-calendar"
-              style="padding-right: 2px; color: #372f42"
+              style="padding-right: 2px; color: #ccc"
             ></i>
             {{ Articles.date }}
           </h3>
         </li>
         <li class="d-flex">
-          <h3>
+          <h3 style="color:aliceblue">
             <i
               class="fa-solid fa-eye"
-              style="padding-right: 2px; color: #372f42"
+              style="padding-right: 2px; color: #ccc"
             ></i>
             {{ Articles.reader }}
           </h3>
@@ -88,7 +90,7 @@ export default {
 
 <style scoped>
 .widgets {
-  background: hwb(80 90% 5% / 0.924);
+  background: #35303e;
   color: #372f42;
   border-radius: 9px;
   padding: 7%;
@@ -139,5 +141,9 @@ P {
 .lower ul {
   width: 100%;
   padding-left: 0px;
+}
+
+.lower{
+  color: #ccc;
 }
 </style>

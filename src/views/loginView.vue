@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="text-center">
-          <img src="../assets/logo/CBLogo.svg" alt="Logo" class="mb-2 logo" />
+          <router-link  to="/"
+              ><img src="../assets/logo/CBLogo.svg" alt="Logo" class="mb-2 logo" /></router-link
+            > 
           <h1 class="h3 mb-3 font-weight-normal">Sign in to your account.</h1>
         </div>
         <form @submit.prevent="login">

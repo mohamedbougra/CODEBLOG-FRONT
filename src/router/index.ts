@@ -7,6 +7,7 @@ import ProfileView from "../views/ProfileView.vue";
 import ReadArticleView from "../views/ReadArticleView.vue";
 import AddArticleView from "../views/AddArticleView.vue";
 import ContactUs from "../views/ContactUs.vue";
+import ResultatSearch from "../views/ResultatSearch.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -24,13 +25,18 @@ const routes: Array<RouteRecordRaw> = [
     component: loginView,
   },
   {
+    path: "/Result",
+    name: "Result",
+    component: ResultatSearch ,
+  },
+  {
     path: "/sign-up",
     name: "sign-up",
     component: signUpView,
   },
   {
     path: "/sign-up/form",
-    name: "sign-up",
+    name: "sign-up-form",
     component: signUpStepperView,
   },
   {
@@ -52,11 +58,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "article",
     component: ReadArticleView,
   },
-  {
-    path: "/add-article",
-    name: "AddArticleView",
-    component: AddArticleView,
-  },
+  // {
+  //   path: "/add-article",
+  //   name: "AddArticleView",
+  //   component: AddArticleView,
+  // },
 ];
 
 const router = createRouter({

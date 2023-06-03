@@ -13,8 +13,7 @@
             <h4 class="text-center">
               {{ user.firstName }} {{ user.lastName }}
             </h4>
-            <p style="text-align: center">{{ user.follower }} followers</p>
-            <p style="text-align: center">{{ user.following }} following</p>
+            
           </div>
           <div
             class="nav flex-column nav-pills"
@@ -34,54 +33,9 @@
               <i class="fa fa-home text-center mr-1"></i>
               Account
             </a>
-            <a
-              class="nav-link active nl"
-              id="post-tab"
-              data-toggle="pill"
-              href="#post"
-              role="tab"
-              aria-controls="post"
-              aria-selected="false"
-            >
-              <i class="fa fa-home text-center mr-1"></i>
-              Posts
-            </a>
-            <a
-              class="nav-link nl"
-              id="password-tab"
-              data-toggle="pill"
-              href="#password"
-              role="tab"
-              aria-controls="password"
-              aria-selected="false"
-            >
-              <i class="fa fa-key text-center mr-1"></i>
-              Password
-            </a>
-            <a
-              class="nav-link nl"
-              id="security-tab"
-              data-toggle="pill"
-              href="#security"
-              role="tab"
-              aria-controls="security"
-              aria-selected="false"
-            >
-              <i class="fa fa-user text-center mr-1"></i>
-              Security
-            </a>
-            <a
-              class="nav-link nl"
-              id="application-tab"
-              data-toggle="pill"
-              href="#application"
-              role="tab"
-              aria-controls="application"
-              aria-selected="false"
-            >
-              <i class="fa fa-tv text-center mr-1"></i>
-              Application
-            </a>
+            
+          
+            
             <a
               class="nav-link nl"
               id="notification-tab"
@@ -93,6 +47,18 @@
             >
               <i class="fa fa-bell text-center mr-1"></i>
               Notification
+            </a>
+            <a
+              class="nav-link nl"
+              id="application-tab"
+              data-toggle="pill"
+              href="#application"
+              role="tab"
+              aria-controls="application"
+              aria-selected="false"
+            >
+            <i class="fa-solid fa-shield-halved"></i>
+              Privacy Policy
             </a>
           </div>
         </div>
@@ -335,37 +301,23 @@
             role="tabpanel"
             aria-labelledby="application-tab"
           >
-            <h3 class="mb-4">Application Settings</h3>
+            <h3 class="mb-4">Privacy Policy for CODE BLOG</h3>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <div class="form-group">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="app-check"
-                    />
-                    <label class="form-check-label" for="app-check">
-                      App check
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="defaultCheck2"
-                    />
-                    <label class="form-check-label" for="defaultCheck2">
-                      Lorem ipsum dolor sit.
-                    </label>
-                  </div>
+                  <p>Welcome to  CODE BLOG .We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard your information when you use our application or services. By using  CODE BLOG, you consent to the practices described in this policy.
+
+                  </p> <br>
+                  <p>1. Personal Information: We may collect certain personally identifiable information ("Personal Information") when you use our application. This may include your name, email address, contact information, and any other information you provide voluntarily.
+
+                  </p>
+                  <p>2. Non-Personal Information: We may also collect non-personal information such as device information, IP addresses, browser type, and usage statistics. This information does not personally identify you and is collected to improve our services and enhance your user experience.</p>
+                
                 </div>
               </div>
             </div>
             <div>
-              <button class="btn btn-primary login">Update</button>
+              <button class="btn btn-primary login">accept</button>
               <button class="btn btn-light cancel">Cancel</button>
             </div>
           </div>
@@ -385,8 +337,7 @@
                   id="notification1"
                 />
                 <label class="form-check-label" for="notification1">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolorum accusantium accusamus, neque cupiditate quis
+                  Allow email notification
                 </label>
               </div>
             </div>
@@ -399,8 +350,7 @@
                   id="notification2"
                 />
                 <label class="form-check-label" for="notification2">
-                  hic nesciunt repellat perferendis voluptatum totam porro
-                  eligendi.
+                  Allow desktop notification
                 </label>
               </div>
             </div>
@@ -413,8 +363,7 @@
                   id="notification3"
                 />
                 <label class="form-check-label" for="notification3">
-                  commodi fugiat molestiae tempora corporis. Sed dignissimos
-                  suscipit
+                  Don't receive any thing
                 </label>
               </div>
             </div>
@@ -636,12 +585,5 @@ body {
   color: #757575;
   margin-bottom: 1rem;
 }
-.btn-outline-primary {
-  border-color: #007bff;
-  color: #007bff;
-}
-.btn-outline-primary:hover {
-  background-color: #007bff;
-  color: #fff;
-}
+
 </style>

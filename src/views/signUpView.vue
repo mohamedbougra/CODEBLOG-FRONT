@@ -119,7 +119,7 @@ export default defineComponent({
       };
       login(credentials)
         .then((result) => {
-          this.$router.push({ name: "home" });
+          this.$router.push({ name: "sign-up-form" });
         })
         .catch((result) => {
           console.log(result.status);

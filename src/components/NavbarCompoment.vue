@@ -16,7 +16,9 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/about">About</router-link>
           </li>
+
         </ul>
+        
         <div class="container h-100">
           <form>
             <div class="d-flex justify-content-center h-100">
@@ -27,7 +29,8 @@
                   name=""
                   placeholder="Search..."
                 />
-                <a href="#" class="search_icon"
+                
+                <a href="/Result" class="search_icon"
                   ><i class="fas fa-search"></i
                 ></a>
               </div>
@@ -35,11 +38,7 @@
           </form>
         </div>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <router-link class="btn addArticle nav-link" to="/add-article"
-              >Write</router-link
-            >
-          </li>
+        
           <li class="nav-item">
             <router-link class="btn login nav-link" to="/login"
               >Login</router-link

@@ -64,11 +64,7 @@
     </div>
   </section>
 
-  <div style="text-align: center">
-    <button class="btn addArticle" style="text-align: center" @click="doLogout">
-      logout
-    </button>
-  </div>
+  
 
   <!-- footer -->
 
