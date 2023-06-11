@@ -260,7 +260,7 @@ export default defineComponent({
 
 });
 </script>
-<style>
+<style scoped>
 /**
  * atom-dark theme for `prism.js`
  * Based on Atom's `atom-dark` theme: https://github.com/atom/atom-dark-syntax
